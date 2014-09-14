@@ -63,10 +63,6 @@
 		$scope.tasks = Tasks;
 		console.log(Tasks);
 
-		$timeout(function() {
-			$scope.tasks.pop();
-		}, 2000);
-
 		// Tasks.query({owner: $rootScope.user.id}, function() {
 		//	console.log('These are the tasks:', arguments);
 		// });
@@ -79,8 +75,6 @@
 		// });
 
 		$rootScope.$on('new-task-created', function(event, task) {
-			console.log('Task craeted:', task);
-			console.log(arguments);
 			$scope.tasks.push(task);
 		});
 

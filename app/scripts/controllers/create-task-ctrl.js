@@ -16,7 +16,6 @@
 		};
 
 		$scope.createTask = function(form) {
-			console.log('Let\'s craete a new Task:', $scope.title, '-', $scope.desc);
 			if ($scope.title && $scope.title.length) {
 				$rootScope.$emit('new-task-created', {
 					title: $scope.title,
@@ -26,8 +25,9 @@
 					creationDate: moment().format('L'), // TODO Global dependency
 					comments: []
 				});
+
+				$modalInstance.dismiss('created');
 			}
-			$modalInstance.dismiss('created');
 		};
 
 		$scope.cancel = function(event) {
