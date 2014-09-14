@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html ng-app="Tasker">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <base href="/">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Tasker</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="styles/css/app.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug 
+    <script src="vendor/bootstrap/assets/js/ie10-viewport-bug-workaround.js"></script>
+    -->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Tasker</a>
+        </div>
+        <div class="navbar-collapse collapse">
+        	<div class="tasks-actions" ng-controller="TasksActionsController" ng-show="visible" ng-cloak>
+	          <ul class="nav navbar-nav" >
+	          	<!--
+	            <li class="active"><a href="#">Home</a></li>
+	            <li><a href="#about">About</a></li>
+	            <li><a href="#contact">Contact</a></li>
+	        	-->
+	            <li class="dropdown">
+	              <a href="#" class="dropdown-toggle" data-toggle="dropdown" onclick="return false;">Categorías <span class="caret"></span></a>
+	              <ul class="dropdown-menu" role="menu">
+	                <li><a href="#" onclick="return false;">General</a></li>
+
+	                <li ng-repeat="category in categories"><a href="#" onclick="return false;">{{category}}</a></li>
+	                <li class="divider"></li>
+	                <li class="dropdown-header">Nueva categoría:</li>
+	                <li style="min-width: 210px; margin-bottom: 10px;">
+	                	<form style="padding-left: 20px;">
+							<input type="text" name="newCategoryName" style="margin-right: 5px;">
+							<span class="glyphicon glyphicon-plus"></span>
+	                	</form>
+	                </li>
+	              </ul>
+	            </li>
+
+				<li class="dropdown">
+	              <a href="#" class="dropdown-toggle" data-toggle="dropdown" onclick="return false;">Estado <span class="caret"></span></a>
+	              <ul class="dropdown-menu" role="menu">
+	                <li><a href="#" onclick="return false;">Nueva</a></li>
+	                <li><a href="#" onclick="return false;">En espera</a></li>
+	                <li><a href="#" onclick="return false;">Finalizada</a></li>                
+	              </ul>
+	            </li>
+
+	            <li class="dropdown">
+	              <a href="#" class="dropdown-toggle" data-toggle="dropdown" onclick="return false;">Prioridad <span class="caret" onclick="return false;"></span></a>
+	              <ul class="dropdown-menu" role="menu">
+	                <li><a href="#" onclick="return false;">Hoy</a></li>
+	                <li><a href="#" onclick="return false;">Mañana</a></li>
+	                <li><a href="#" onclick="return false;">Esta semana</a></li>
+	                <li><a href="#" onclick="return false;">La semana que viene</a></li>
+	              </ul>
+	            </li>
+
+	          </ul>
+
+	          <!--
+	          <ul class="nav navbar-nav navbar-right">
+	            <li><a href="../navbar/">Default</a></li>
+	            <li><a href="../navbar-static-top/">Static top</a></li>
+	            <li class="active"><a href="./">Fixed top</a></li>
+	          </ul>
+	      		-->
+
+				<form class="navbar-form navbar-right" role="form" ng-submit="search()">
+					<div class="form-group">
+						<input type="search" ng-model="searchTerm" placeholder="Buscar..." class="form-control">
+					</div>
+					<button type="submit" class="btn btn-success">Buscar</button>
+					<button type="submit" class="btn btn-primary" ng-click="create($event)">Crear tarea</button>
+				</form>
+			</div>
+
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <div class="container text-center app-main-content" ng-view>
+		<!-- Main content goes here -->
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="vendor/jquery/dist/jquery.min.js"></script>
+    <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+	
+	<script src="vendor/angular/angular.js"></script>
+	<script src="vendor/angular-route/angular-route.js"></script>
+	<script src="vendor/angular-resource/angular-resource.js"></script>
+	<script src="vendor/firebase/firebase.js"></script>
+	<script src="vendor/angularfire/dist/angularfire.js"></script>
+	<script src="vendor/angular-local-storage/angular-local-storage.js"></script>
+	<script src="vendor/angular-ui-bootstrap-bower/ui-bootstrap.js"></script>
+	<script src="vendor/angular-ui-bootstrap-bower/ui-bootstrap-tpls.js"></script>
+	<script src="vendor/moment/moment.js"></script>
+	<script src="vendor/moment/locale/es.js"></script>
+
+	<script src="scripts/main.js"></script>
+
+	<script src="scripts/services/auth-service.js"></script>
+	<script src="scripts/models/task.js"></script>
+
+	<script src="scripts/controllers/home-ctrl.js"></script>
+	<script src="scripts/controllers/logon-ctrl.js"></script>
+	<script src="scripts/controllers/tasks-list-ctrl.js"></script>
+	<script src="scripts/controllers/tasks-actions-ctrl.js"></script>
+	<script src="scripts/controllers/create-task-ctrl.js"></script>
+
+  </body>
+</html>

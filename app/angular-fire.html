@@ -1,0 +1,30 @@
+<html ng-app="sampleApp">
+	<head>
+		<title>AngularFire Test</title>
+
+	</head>
+
+	<body ng-controller="SampleController">
+		
+		<h2><a nk-click="magic()">Check out the console!<a></h2>
+
+		<script src="vendor/angular/angular.js"></script>
+		<script src="https://cdn.firebase.com/js/client/1.0.21/firebase.js"></script>
+		<script src="https://cdn.firebase.com/libs/angularfire/0.8.2/angularfire.min.js"></script>
+
+		<script>
+			(function() {
+				var app = angular.module('sampleApp', ["firebase"])
+
+				app.controller('SampleController', function($scope, $firebase) {
+					var ref = new firebase('https://blistering-fire-8531.firebaseio.com/');
+					// var sync = $firebase(ref);
+
+					$scope.magic = function() {
+						ref.startAt('')
+					};
+				});
+			}());
+		</script>
+	</body>
+</html>

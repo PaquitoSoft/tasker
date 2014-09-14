@@ -1,0 +1,73 @@
+body {
+  min-height: 2000px;
+  padding-top: 70px; }
+
+@media (min-width: 800px) {
+  .app-main-content {
+    width: 800px; } }
+
+@media (min-width: 992px) {
+  .app-main-content {
+    width: 970px; } }
+
+/* Angular UI hack */
+.nav, .pagination, .carousel, .panel-title a {
+  cursor: pointer; }
+
+.tasks-actions form {
+  padding-left: 0;
+  padding-right: 0; }
+
+.task-detail {
+  position: relative;
+  border: 1px solid #eee;
+  max-width: 370px;
+  min-width: 350px;
+  padding: 10px 15px 10px 15px;
+  margin-bottom: 25px;
+  text-align: left; }
+  .task-detail .header {
+    position: relative;
+    margin-bottom: 5px;
+    /*border-bottom: 1px solid;*/ }
+    .task-detail .header .title {
+      display: inline-block;
+      max-width: 90%;
+      font-size: 22px;
+      font-weight: 200;
+      line-height: 1em; }
+    .task-detail .header .status {
+      position: absolute;
+      border: 1px solid;
+      border-radius: 15px;
+      height: 25px;
+      width: 25px;
+      top: 0;
+      right: 0; }
+    .task-detail .header .status-new {
+      background-color: blue; }
+    .task-detail .header .status-waiting {
+      background-color: red; }
+    .task-detail .header .status-closed {
+      background-color: green; }
+    .task-detail .header hr {
+      margin: 10px 0 0 0;
+      background-color: #eee;
+      height: 1px; }
+  .task-detail .body {
+    padding: 0 5px 0 5px;
+    margin-bottom: 10px; }
+  .task-detail .footer {
+    position: relative;
+    padding: 0 5px 0 5px; }
+    .task-detail .footer .date {
+      font-style: italic; }
+    .task-detail .footer .comments {
+      display: inline-block;
+      position: absolute;
+      right: 0; }
+
+.task-creation {
+  margin-bottom: 15px; }
+  .task-creation .form-group {
+    margin: auto; }

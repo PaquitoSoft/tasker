@@ -1,0 +1,49 @@
+<div ng-show="!tasks.length">
+	Loading your tasks...
+</div>
+
+<ul class="tasks list-unstyled list-inline">
+	<li ng-repeat="task in tasks">
+		<div class="task-detail">
+			<div class="header">
+				<span class="title">{{task.title}}</span>
+				<span class="status status-{{task.status}}">&nbsp;</span>
+				<hr>
+			</div>
+			<div class="body">
+				<div class="description">{{task.description}}</div>	
+			</div>
+			<div class="footer">
+				<span class="date">{{task.creationDate}}</span>
+				<span class="comments"><a href="#">Comentarios</a></span>
+			</div>
+			<div class="comments">
+				<ul style="display: none;">
+					<li class="comment" ngRepeat="comment in task.comments">
+						<div>{{comment.message}}</div>
+						<div>Date: {{comment.date}}</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</li>
+		<!--
+	<li>
+		<div class="task-detail">
+			<div class="header">
+				<span class="title">Revisar marcado para tarjeta empleado</span>
+				<span class="status status-waiting">&nbsp;</span>
+				<hr>
+			</div>
+			<div class="body">
+				<div class="description">Tenemos que poder diferenciar el panel de tarjeta regalo del de empleado para GA</div>	
+			</div>
+			<div class="footer">
+				<span class="date">16/08/2014</span>
+				<span class="comments"><a href="#">Comentarios</a></span>
+			</div>
+			<div class="comments"></div>
+		</div>
+	</li>
+	-->
+</ul>
