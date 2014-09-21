@@ -29,7 +29,8 @@ function _validateAuthToken(authToken, next) {
 			code: authToken,
 			client_id: '337401479804-qags7cttaqlc1npoore30r3eop0gh1bk.apps.googleusercontent.com',
 			client_secret: '8BakJXVERQ1c82N-7bJPCaLq',
-			redirect_uri: 'http://localhost:8000/external-logon',
+			// redirect_uri: 'http://localhost:8000/external-logon',
+			redirect_uri: 'http://ps-tasker.herokuapp.com/external-logon',
 			grant_type: 'authorization_code'
 		}
 	}, function(err, res, body) {
