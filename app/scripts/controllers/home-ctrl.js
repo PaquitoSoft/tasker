@@ -1,14 +1,14 @@
 (function(APP) {
 
-	APP.controller('HomeController', ['$scope', '$window', '$location', '$rootScope', 'authService', 'localStorageService',
-		function($scope, $window, $location, $rootScope, authService, localStorage) {
+	APP.controller('HomeController', ['$scope', '$window', '$location', '$rootScope', 'authService', 'localStorageService', '$cookies',
+		function($scope, $window, $location, $rootScope, authService, localStorage, $cookies) {
 
 		// 1.- Check if I have a stored token
 		// 1.1.- Validate token
 		// 2.- Check if I have an URL param token
 		// 2.1.- Validate token
 		// 3.- Render login page or redirect to tasks view
-
+/*
 		var hash = $location.hash(),
 			prevToken = localStorage.get('tkn'),
 			accessToken;
@@ -48,7 +48,9 @@
 		} else {
 			$location.path('/logon.html');
 		}
-		
+*/		
+		console.log('Cookie:', $cookies.registered);
+		$location.path(($cookies.registered === 'true') ? '/tasks.html' : '/logon.html');
 	}]);
 
 }(window.TASKER));

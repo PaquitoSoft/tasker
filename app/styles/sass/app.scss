@@ -24,6 +24,9 @@ body {
 		padding-left: 0;
 		padding-right: 0;
 	}
+	.createCategoryBtn {
+		margin-left: -3px;
+	}
 }
 
 .task-detail {
@@ -56,13 +59,13 @@ body {
 			right: 0;
 		}
 		.status-new {
-			background-color: blue;
+			background-color: #428bca;
 		}
 		.status-waiting {
 			background-color: red;
 		}
 		.status-closed {
-			background-color: green;
+			background-color: #5cb85c;
 		}
 		hr {
 			margin: 10px 0 0 0;

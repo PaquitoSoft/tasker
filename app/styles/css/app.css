@@ -17,6 +17,8 @@ body {
 .tasks-actions form {
   padding-left: 0;
   padding-right: 0; }
+.tasks-actions .createCategoryBtn {
+  margin-left: -3px; }
 
 .task-detail {
   position: relative;
@@ -45,11 +47,11 @@ body {
       top: 0;
       right: 0; }
     .task-detail .header .status-new {
-      background-color: blue; }
+      background-color: #428bca; }
     .task-detail .header .status-waiting {
       background-color: red; }
     .task-detail .header .status-closed {
-      background-color: green; }
+      background-color: #5cb85c; }
     .task-detail .header hr {
       margin: 10px 0 0 0;
       background-color: #eee;

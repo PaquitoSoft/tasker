@@ -1,9 +1,9 @@
 (function() {
 	"use strict";
 
-	window.TASKER = angular.module('Tasker', ['ngRoute', 'firebase', 'LocalStorageModule', 'ui.bootstrap']);
+	window.TASKER = angular.module('Tasker', ['ngRoute', 'ngResource', 'ngCookies', 'LocalStorageModule', 'ui.bootstrap']);
 
-	window.TASKER.value('fbURL', 'https://blistering-fire-8531.firebaseio.com/');
+	// window.TASKER.value('fbURL', 'https://blistering-fire-8531.firebaseio.com/');
 
 	window.TASKER.config(function($routeProvider, $locationProvider) {
 		$routeProvider

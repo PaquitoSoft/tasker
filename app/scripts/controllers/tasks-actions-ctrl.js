@@ -1,11 +1,13 @@
-(function(APP) {
+(function(app) {
 
-	APP.controller('TasksActionsController',
-		['$scope', '$rootScope', '$modal', function($scope, $rootScope, $modal) {
+	app.controller('TasksActionsController',
+		['$scope', '$rootScope', '$modal', '$cookies', 'Category',
+			function($scope, $rootScope, $modal, $cookies, Category) {
 
 		var createTaskPanel;
 
-		$scope.visible = false;
+		$scope.newCategoryName = '';
+		$scope.visible = $cookies.registered === 'true';
 		$scope.searchTerm = '';
 
 		$scope.search = function() {
@@ -24,15 +26,21 @@
 			});
 		};
 
-		$rootScope.$on('USER_LOGGED_IN', function(user) {
-			$scope.visible = true;
-			_loadCategories(user);
+		Category.query(function(categories) {
+			$scope.categories = categories;
 		});
 
-		function _loadCategories(user) {
-			// TODO
-			$scope.categories = ['Arq. sistemas', 'Código web mobile'];
-		}
+		$scope.createCategory = function() {
+			var cat;
+			if ($scope.newCategoryName.trim().length) {
+				cat = new Category({
+					name: $scope.newCategoryName.trim()
+				});
+				$scope.categories.push(cat);
+				cat.$save();
+				$scope.newCategoryName = '';
+			}
+		};
 
 	}]);
 

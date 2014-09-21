@@ -1,7 +1,8 @@
-(function(APP) {
+(function(app) {
 	'use strict';
 
-	APP.factory('Tasks', ['$firebase', 'fbURL', function($firebase, fbURL) {
-		return $firebase(new Firebase(fbURL)).$asArray();
+	app.factory('Task', ['$resource', function($resource) {
+		return $resource('/api/task');
 	}]);
+	
 }(window.TASKER));
