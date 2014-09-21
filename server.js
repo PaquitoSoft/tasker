@@ -12,9 +12,10 @@ var path = require('path'),
 var app = express();
 var httpPort = process.env.PORT || 8000;
 var sidSalt = process.env.SIDSALR || 'FSAM,.DMSAfasd,fm.af---fasdf';
+var mongoURL = process.env.TASKER_MONGO_URL || 'mongodb://localhost/tasker';
 var database;
 
-mongoose.connect('mongodb://localhost/tasker');
+mongoose.connect(mongoURL);
 
 /* ---------------- Helpers ------------------ */
 function _validateAuthToken(authToken, next) {
