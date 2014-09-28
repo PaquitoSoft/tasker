@@ -19,6 +19,39 @@ body {
 /* Angular UI hack */
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
+.filters {
+	.open .filter-name {
+		background-color: rgba(0, 0, 0, 0) !important;
+	}
+	.filter-name {
+		font-size: 16px;
+	}
+	.selected-filter {
+		font-size: 11px;
+		position: relative;
+		margin-left: 20px;
+		border-left: 1px solid #000000;
+		padding-left: 5px;
+		font-weight: 700;
+		top: -10px;
+	}
+	.new-category {
+		min-width: 210px;
+		margin-bottom: 10px;
+		form {
+			padding-left: 20px;
+			.new-category-name {
+				margin-right: 5px;
+			}
+			.createCategoryBtn {
+				position: relative;
+				left: -2px;
+			}
+		}
+	}
+}
+
+/*
 .tasks-actions {
 	form {
 		padding-left: 0;
@@ -26,6 +59,25 @@ body {
 	}
 	.createCategoryBtn {
 		margin-left: -3px;
+	}
+}
+*/
+
+.user-menu {
+	position: relative;
+	top: 10px;
+	.logout {
+		display: inline-block;
+		padding-left: 15px;
+		margin-left: 15px;
+		margin-right: 15px;
+		height: 32px;
+		top: -5px;
+		position: relative;
+		border-left: 2px solid grey;
+		span {
+			top: 8px;
+		}
 	}
 }
 
@@ -49,28 +101,18 @@ body {
 			font-weight: 200;
 			line-height: 1em;
 		}
-		.status {
-			position: absolute;
-			border: 1px solid;
-			border-radius: 15px;
-			height: 25px;
-			width: 25px;
-			top: 0;
-			right: 0;
+		.settings {
+			float: right;
+			top: 6px;
+			cursor: pointer;
 		}
-		.status-new {
-			background-color: #428bca;
-		}
-		.status-waiting {
-			background-color: red;
-		}
-		.status-closed {
-			background-color: #5cb85c;
-		}
-		hr {
+		hr.status {
 			margin: 10px 0 0 0;
 			background-color: #eee;
-			height: 1px;
+			height: 3px;
+			&-new { background-color: #428bca; }
+			&-waiting { background-color: #d9534f; }
+			&-closed { background-color: #5cb85c; }
 		}
 	}
 
@@ -98,4 +140,12 @@ body {
 	.form-group {
 		margin: auto;
 	}
+}
+
+.app-header {
+	min-height: 65px;
+}
+
+.app-main-content {
+	margin-top: 15px;
 }

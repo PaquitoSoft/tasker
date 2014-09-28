@@ -6,13 +6,24 @@
 
 		var createTaskPanel;
 
+		$scope.statuses = [
+			'Cualquiera',
+			'Nueva',
+			'En espera',
+			'Finalizada'
+		];
+
+		$scope.selectedFilters = {
+			category: 'Todas',
+			status: 'Cualquiera'
+		};
+
 		$scope.newCategoryName = '';
 		$scope.visible = $cookies.registered === 'true';
-		$scope.searchTerm = '';
-
-		$scope.search = function() {
-			console.log('Searching tasks with search term:', $scope.searchTerm);
-			console.log(arguments);
+		
+		$scope.selectFilter = function(event, value, filter) {
+			event.preventDefault();
+			$scope.selectedFilters[filter] = value;
 		};
 
 		$scope.create = function(event) {
@@ -24,11 +35,7 @@
 				templateUrl: 'views/create-task.html',
 				controller: 'CreateTaskController'
 			});
-		};
-
-		Category.query(function(categories) {
-			$scope.categories = categories;
-		});
+		};		
 
 		$scope.createCategory = function() {
 			var cat;
@@ -41,6 +48,10 @@
 				$scope.newCategoryName = '';
 			}
 		};
+
+		Category.query(function(categories) {
+			$scope.categories = categories;
+		});
 
 	}]);
 

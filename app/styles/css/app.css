@@ -14,11 +14,54 @@ body {
 .nav, .pagination, .carousel, .panel-title a {
   cursor: pointer; }
 
-.tasks-actions form {
-  padding-left: 0;
-  padding-right: 0; }
-.tasks-actions .createCategoryBtn {
-  margin-left: -3px; }
+.filters .open .filter-name {
+  background-color: rgba(0, 0, 0, 0) !important; }
+.filters .filter-name {
+  font-size: 16px; }
+.filters .selected-filter {
+  font-size: 11px;
+  position: relative;
+  margin-left: 20px;
+  border-left: 1px solid #000000;
+  padding-left: 5px;
+  font-weight: 700;
+  top: -10px; }
+.filters .new-category {
+  min-width: 210px;
+  margin-bottom: 10px; }
+  .filters .new-category form {
+    padding-left: 20px; }
+    .filters .new-category form .new-category-name {
+      margin-right: 5px; }
+    .filters .new-category form .createCategoryBtn {
+      position: relative;
+      left: -2px; }
+
+/*
+.tasks-actions {
+	form {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	.createCategoryBtn {
+		margin-left: -3px;
+	}
+}
+*/
+.user-menu {
+  position: relative;
+  top: 10px; }
+  .user-menu .logout {
+    display: inline-block;
+    padding-left: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+    height: 32px;
+    top: -5px;
+    position: relative;
+    border-left: 2px solid grey; }
+    .user-menu .logout span {
+      top: 8px; }
 
 .task-detail {
   position: relative;
@@ -38,24 +81,20 @@ body {
       font-size: 22px;
       font-weight: 200;
       line-height: 1em; }
-    .task-detail .header .status {
-      position: absolute;
-      border: 1px solid;
-      border-radius: 15px;
-      height: 25px;
-      width: 25px;
-      top: 0;
-      right: 0; }
-    .task-detail .header .status-new {
-      background-color: #428bca; }
-    .task-detail .header .status-waiting {
-      background-color: red; }
-    .task-detail .header .status-closed {
-      background-color: #5cb85c; }
-    .task-detail .header hr {
+    .task-detail .header .settings {
+      float: right;
+      top: 6px;
+      cursor: pointer; }
+    .task-detail .header hr.status {
       margin: 10px 0 0 0;
       background-color: #eee;
-      height: 1px; }
+      height: 3px; }
+      .task-detail .header hr.status-new {
+        background-color: #428bca; }
+      .task-detail .header hr.status-waiting {
+        background-color: #d9534f; }
+      .task-detail .header hr.status-closed {
+        background-color: #5cb85c; }
   .task-detail .body {
     padding: 0 5px 0 5px;
     margin-bottom: 10px; }
@@ -73,3 +112,9 @@ body {
   margin-bottom: 15px; }
   .task-creation .form-group {
     margin: auto; }
+
+.app-header {
+  min-height: 65px; }
+
+.app-main-content {
+  margin-top: 15px; }

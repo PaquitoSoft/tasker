@@ -33,7 +33,7 @@
 
     <!-- Fixed navbar -->
     <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-      <div class="container">
+      <div class="container app-header">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
@@ -45,24 +45,29 @@
         </div>
         <div class="navbar-collapse collapse">
         	<div class="tasks-actions" ng-controller="TasksActionsController" ng-show="visible" ng-cloak>
-	          <ul class="nav navbar-nav" >
+	          <ul class="nav navbar-nav filters" >
 	          	<!--
 	            <li class="active"><a href="#">Home</a></li>
 	            <li><a href="#about">About</a></li>
 	            <li><a href="#contact">Contact</a></li>
 	        	-->
 	            <li class="dropdown">
-	              <a href="#" class="dropdown-toggle" data-toggle="dropdown" onclick="return false;">Categorías <span class="caret"></span></a>
+	              <a href="#" class="dropdown-toggle filter-name" data-toggle="dropdown">Categorías <span class="caret"></span></a>
+
+					<div class="selected-filter">{{selectedFilters.category}}</div>
+ 
+
 	              <ul class="dropdown-menu" role="menu">
-	                <li><a href="#" onclick="return false;">General</a></li>
+	                <li><a href="#" ng-click="selectFilter($event, 'Todas', 'category')">Todas</a></li>
 					
-	                <li ng-repeat="category in categories"><a href="#" onclick="return false;">{{category.name}}</a></li>
+	                <li ng-repeat="category in categories">
+	                	<a href="#" ng-click="selectFilter($event, category.name, 'category')">{{category.name}}</a>
+	                </li>
 	                <li class="divider"></li>
 	                <li class="dropdown-header">Nueva categoría:</li>
-	                <li style="min-width: 210px; margin-bottom: 10px;">
-	                	<form style="padding-left: 20px;" ng-submit="createCategory()">
-							<input type="text" ng-model="newCategoryName" style="margin-right: 5px;">
-							<!-- <span class="glyphicon glyphicon-plus"></span> -->
+	                <li class="new-category">
+	                	<form ng-submit="createCategory()">
+							<input class="new-category-name" type="text" ng-model="newCategoryName">
 							<button type="submit" class="btn btn-default btn-xs createCategoryBtn">
 								<span class="glyphicon glyphicon-plus"></span>
 							</button>
@@ -72,14 +77,23 @@
 	            </li>
 
 				<li class="dropdown">
-	              <a href="#" class="dropdown-toggle" data-toggle="dropdown" onclick="return false;">Estado <span class="caret"></span></a>
+	              <a href="#" class="dropdown-toggle filter-name" data-toggle="dropdown" onclick="return false;">Estado <span class="caret"></span></a>
+
+					<div class="selected-filter">{{selectedFilters.status}}</div>
+ 
 	              <ul class="dropdown-menu" role="menu">
+	              	<li ng-repeat="s in statuses">
+	              		<a href="#" ng-click="selectFilter($event, s, 'status')">{{s}}</a>
+	              	</li>
+	              	<!--
+	              	<li><a href="#" onclick="return false;">Cualquiera</a></li>
 	                <li><a href="#" onclick="return false;">Nueva</a></li>
 	                <li><a href="#" onclick="return false;">En espera</a></li>
-	                <li><a href="#" onclick="return false;">Finalizada</a></li>                
+	                <li><a href="#" onclick="return false;">Finalizada</a></li>
+	            	-->
 	              </ul>
 	            </li>
-
+<!--
 	            <li class="dropdown">
 	              <a href="#" class="dropdown-toggle" data-toggle="dropdown" onclick="return false;">Prioridad <span class="caret" onclick="return false;"></span></a>
 	              <ul class="dropdown-menu" role="menu">
@@ -89,23 +103,14 @@
 	                <li><a href="#" onclick="return false;">La semana que viene</a></li>
 	              </ul>
 	            </li>
-
+-->
 	          </ul>
 
-	          <!--
-	          <ul class="nav navbar-nav navbar-right">
-	            <li><a href="../navbar/">Default</a></li>
-	            <li><a href="../navbar-static-top/">Static top</a></li>
-	            <li class="active"><a href="./">Fixed top</a></li>
-	          </ul>
-	      		-->
-
-				<form class="navbar-form navbar-right" role="form" ng-submit="search()">
-					<div class="form-group">
-						<input type="search" ng-model="searchTerm" placeholder="Buscar..." class="form-control">
+				<form class="navbar-form navbar-right user-menu" role="form">
+					<button type="button" class="btn btn-default" ng-click="create($event)">Crear tarea</button>
+					<div class="logout">
+						<span class="glyphicon glyphicon-off"></span>
 					</div>
-					<button type="submit" class="btn btn-success">Buscar</button>
-					<button type="submit" class="btn btn-primary" ng-click="create($event)">Crear tarea</button>
 				</form>
 			</div>
 
